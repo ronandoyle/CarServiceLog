@@ -5,6 +5,7 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
 import ie.nanorstudios.carservicelog.CSLApp
+import ie.nanorstudios.carservicelog.di.activitymodules.ActivityModule
 import javax.inject.Singleton
 
 @Singleton

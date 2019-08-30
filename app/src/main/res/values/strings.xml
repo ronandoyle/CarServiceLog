@@ -11,4 +11,5 @@
     <string name="torque">Torque</string>
     <string name="extra_details">Extra Details</string>
     <string name="optional">(Optional)</string>
+    <string name="submit">Submit</string>
 </resources>

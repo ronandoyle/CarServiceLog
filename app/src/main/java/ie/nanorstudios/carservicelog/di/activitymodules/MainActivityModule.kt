@@ -1,9 +1,10 @@
-package ie.nanorstudios.carservicelog.di
+package ie.nanorstudios.carservicelog.di.activitymodules
 
 import android.app.Activity
 import dagger.Binds
 import dagger.Module
 import ie.nanorstudios.carservicelog.activities.MainActivity
+import ie.nanorstudios.carservicelog.di.ActivityScope
 import ie.nanorstudios.carservicelog.interactors.MainActivityInteractor
 import ie.nanorstudios.carservicelog.interactors.MainActivityInteractorImpl
 import ie.nanorstudios.carservicelog.presenters.MainActivityPresenter

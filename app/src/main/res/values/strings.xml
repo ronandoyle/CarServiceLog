@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CarServiceLog</string>
+    <string name="make">Make</string>
+    <string name="model">Model</string>
+    <string name="engine">Engine</string>
+    <string name="trim">Trim</string>
+    <string name="color">Color</string>
+    <string name="mileage">Mileage</string>
+    <string name="registration">Registration</string>
+    <string name="horsepower">BHP</string>
+    <string name="torque">Torque</string>
+    <string name="extra_details">Extra Details</string>
+    <string name="optional">(Optional)</string>
+</resources>

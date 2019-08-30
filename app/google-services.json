@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "367504398311",
+    "firebase_url": "https://car-service-log-bcd96.firebaseio.com",
+    "project_id": "car-service-log-bcd96",
+    "storage_bucket": "car-service-log-bcd96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367504398311:android:e3e47ba2a55e8e44",
+        "android_client_info": {
+          "package_name": "ie.nanorstudios.carservicelog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367504398311-eil3d4ruqv76mdjcpbds4f8eimbsqdj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmad3t7NpM6sL5OiD1jUAhH0ADuIpAmOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367504398311-eil3d4ruqv76mdjcpbds4f8eimbsqdj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

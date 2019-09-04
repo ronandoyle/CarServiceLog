@@ -12,4 +12,5 @@
     <string name="extra_details">Extra Details</string>
     <string name="optional">(Optional)</string>
     <string name="submit">Submit</string>
+    <string name="date">Date</string>
 </resources>

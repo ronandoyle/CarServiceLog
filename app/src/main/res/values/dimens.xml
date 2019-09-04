@@ -3,4 +3,8 @@
 	<dimen name="standard_55">55dp</dimen>
 	<dimen name="standard_105">105dp</dimen>
 	<dimen name="standard_155">155dp</dimen>
+	
+	<dimen name="new_item_activity_gutter">16dp</dimen>
+	<dimen name="top_gutter">20dp</dimen>
+
 </resources>

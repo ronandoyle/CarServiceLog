@@ -3,13 +3,44 @@
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		xmlns:app="http://schemas.android.com/apk/res-auto">
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
 
 	<androidx.appcompat.widget.Toolbar
 			android:id="@+id/toolbar"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:titleTextColor="@android:color/white"
+			android:background="?attr/colorPrimary"/>
+
+	<TextView
+			android:id="@+id/dateLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/date"
+			android:textSize="@dimen/labelSize"
+			android:textStyle="bold"
+			android:labelFor="@id/dateView"
+			android:layout_marginTop="@dimen/top_gutter"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"
+			app:layout_constraintTop_toBottomOf="@id/toolbar"
+			app:layout_constraintStart_toStartOf="parent"/>
+
+	<TextView
+			android:id="@+id/dateView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"
+			style="@android:style/Widget.EditText"
+			tools:text="04/09/2019"
+			android:textSize="@dimen/inputSize"
+			android:clickable="true"
+			android:focusable="true"
+			app:layout_constraintTop_toBottomOf="@id/dateLabel"
 			app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

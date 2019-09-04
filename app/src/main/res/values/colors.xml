@@ -6,7 +6,7 @@
     <color name="colorAccent">#ffab00</color>
     <color name="secondaryLightColor">#ffdd4b</color>
     <color name="secondaryDarkColor">#c67c00</color>
-    <color name="primaryTextColor">>@color/white</color>
+    <color name="primaryTextColor">@color/white</color>
     <color name="secondaryTextColor">#000000</color>
     <color name="colorControlNormal">@color/white</color>
     <color name="white">#ffffff</color>

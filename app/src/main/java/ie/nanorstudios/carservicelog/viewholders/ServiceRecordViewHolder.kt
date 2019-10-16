@@ -9,6 +9,6 @@ import ie.nanorstudios.carservicelog.models.ServiceRecord
 class ServiceRecordViewHolder(var item: View): RecyclerView.ViewHolder(item) {
 
 	fun bind(record: ServiceRecord) {
-		item.findViewById<TextView>(R.id.title_tv).text = record.title
+		item.findViewById<TextView>(R.id.title_tv).text = record.date
 	}
 }

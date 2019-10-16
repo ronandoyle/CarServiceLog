@@ -1,19 +1,44 @@
 package ie.nanorstudios.carservicelog.activities
 
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
+import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_SERVICE_RECORD
 import ie.nanorstudios.carservicelog.R
+import ie.nanorstudios.carservicelog.models.ServiceRecord
+import ie.nanorstudios.carservicelog.viewmodel.ServiceRecordViewModel
 import kotlinx.android.synthetic.main.activity_new_item.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class NewItemActivity: AppCompatActivity() {
 
+//	private val viewModel: ServiceRecordViewModel by lazy {
+//		ViewModelProviders.of(this).get(ServiceRecordViewModel::class.java)
+//	}
+
+	private var viewModel: ServiceRecordViewModel? = null
+
+//	private val changeObserver =
+//	Observer<MutableList<ServiceRecord>> {
+//		value -> value?.let { incrementCount() }
+//	}
+//		Observer<Int> {
+//				value -> value?.let { incrementCount(value) }
+//		}
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_new_item)
+
+		viewModel = ViewModelProviders.of(this).get(ServiceRecordViewModel::class.java)
+
+//		viewModel.serviceRecordsList.observe(this, changeObserver)
+
 		initUI()
 	}
 
@@ -28,6 +53,7 @@ class NewItemActivity: AppCompatActivity() {
 	private fun initUI() {
 		initToolbar()
 		initDate()
+		initSubmitBtn()
 	}
 
 	private fun initToolbar() {
@@ -56,5 +82,20 @@ class NewItemActivity: AppCompatActivity() {
 		val calendar = Calendar.getInstance()
 		calendar.set(year, month, day)
 		dateView.text = SimpleDateFormat.getDateInstance().format(calendar.time)
+	}
+
+	private fun initSubmitBtn() {
+		submit.setOnClickListener {
+			val data = Intent()
+			viewModel?.let {
+				val serviceRecord = ServiceRecord(dateView.text.toString())
+//				it.insert(serviceRecord)
+				data.putExtra(EXTRA_SERVICE_RECORD, serviceRecord)
+			}
+
+//			viewModel.increment()
+			setResult(Activity.RESULT_OK, data)
+			finish()
+		}
 	}
 }

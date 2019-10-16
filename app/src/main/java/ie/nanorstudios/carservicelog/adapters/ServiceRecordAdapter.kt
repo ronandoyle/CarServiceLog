@@ -7,7 +7,8 @@ import ie.nanorstudios.carservicelog.R
 import ie.nanorstudios.carservicelog.models.ServiceRecord
 import ie.nanorstudios.carservicelog.viewholders.ServiceRecordViewHolder
 
-class ServiceRecordAdapter(var serviceRecords: List<ServiceRecord>?): RecyclerView.Adapter<ServiceRecordViewHolder>() {
+class ServiceRecordAdapter: RecyclerView.Adapter<ServiceRecordViewHolder>() {
+	var serviceRecords: List<ServiceRecord>? = null
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceRecordViewHolder {
 		val v = LayoutInflater.from(parent.context).inflate(R.layout.service_record, parent, false)
@@ -21,4 +22,11 @@ class ServiceRecordAdapter(var serviceRecords: List<ServiceRecord>?): RecyclerVi
 	override fun onBindViewHolder(holder: ServiceRecordViewHolder, position: Int) {
 		serviceRecords?.let { holder.bind(it[position]) }
 	}
+
+	fun setServiceServiceRecords(serviceRecords: List<ServiceRecord>) {
+		this.serviceRecords = serviceRecords
+		notifyDataSetChanged()
+	}
+
+
 }

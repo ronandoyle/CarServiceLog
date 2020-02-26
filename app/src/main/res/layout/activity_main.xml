@@ -5,12 +5,6 @@
 		android:layout_height="match_parent"
 		android:layout_width="match_parent">
 
-	<!--<androidx.constraintlayout.widget.ConstraintLayout-->
-			<!--app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"-->
-			<!--android:layout_width="match_parent"-->
-			<!--android:layout_height="match_parent"-->
-			<!--tools:context=".activities.MainActivity">-->
-
 	<androidx.core.widget.NestedScrollView
 			android:id="@+id/scroll_view"
 			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
@@ -28,34 +22,6 @@
 
 	</androidx.core.widget.NestedScrollView>
 
-	<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
-
-	<!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
-			<!--android:id="@+id/service_fab"-->
-			<!--android:layout_width="wrap_content"-->
-			<!--android:layout_height="wrap_content"-->
-			<!--android:layout_gravity="bottom|end"-->
-			<!--android:layout_margin="16dp"-->
-			<!--android:layout_marginBottom="20dp"-->
-			<!--app:srcCompat="@android:drawable/ic_btn_speak_now" />-->
-
-	<!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
-			<!--android:id="@+id/fuel_fab"-->
-			<!--android:layout_width="wrap_content"-->
-			<!--android:layout_height="wrap_content"-->
-			<!--android:layout_gravity="bottom|end"-->
-			<!--android:layout_margin="16dp"-->
-			<!--android:layout_marginBottom="20dp"-->
-			<!--app:srcCompat="@android:drawable/ic_menu_camera" />-->
-
-	<!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
-			<!--android:id="@+id/cleaning_fab"-->
-			<!--android:layout_width="wrap_content"-->
-			<!--android:layout_height="wrap_content"-->
-			<!--android:layout_gravity="bottom|end"-->
-			<!--android:layout_margin="16dp"-->
-			<!--app:srcCompat="@android:drawable/ic_dialog_map" />-->
-
 	<com.google.android.material.floatingactionbutton.FloatingActionButton
 			android:id="@+id/fab"
 			app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
@@ -65,4 +31,5 @@
 			android:contentDescription="@string/submit"
 			android:layout_margin="16dp"
 			app:srcCompat="@drawable/ic_add_black"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

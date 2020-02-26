@@ -5,11 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import dagger.android.support.DaggerAppCompatActivity
+import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_NEW_ITEM_TITLE
 import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_SERVICE_RECORD
-import ie.nanorstudios.carservicelog.R
 import ie.nanorstudios.carservicelog.RequestCodes.Companion.NEW_ITEM_ACTIVITY_REQUEST_CODE
 import ie.nanorstudios.carservicelog.adapters.ServiceRecordAdapter
+import ie.nanorstudios.carservicelog.fragments.RecordTypeBottomSheetFragment
 import ie.nanorstudios.carservicelog.models.ServiceRecord
 import ie.nanorstudios.carservicelog.presenters.MainActivityPresenter
 import ie.nanorstudios.carservicelog.views.MainActivityView
@@ -21,11 +23,13 @@ class MainActivity: DaggerAppCompatActivity(), MainActivityView {
 
     @Inject lateinit var presenter: MainActivityPresenter
     private var serviceRecordAdapter = ServiceRecordAdapter()
+	private var sheetBehavior: BottomSheetBehavior<*>? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+	override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(ie.nanorstudios.carservicelog.R.layout.activity_main)
         setupRecyclerView()
+//		setupBottomSheet()
         setupExpandingFab()
     }
 
@@ -59,7 +63,20 @@ class MainActivity: DaggerAppCompatActivity(), MainActivityView {
 
     private fun setupExpandingFab() {
         fab.setOnClickListener {
-            startActivityForResult(Intent(this, NewItemActivity::class.java), NEW_ITEM_ACTIVITY_REQUEST_CODE)
+			showBottomSheetFragment()
         }
     }
+
+	private fun showBottomSheetFragment() {
+		val bottomSheetFragment = RecordTypeBottomSheetFragment(this::handleBottomSheetAction)
+		bottomSheetFragment.show(supportFragmentManager, RecordTypeBottomSheetFragment.TAG)
+	}
+
+	private fun handleBottomSheetAction(serviceType: String) {
+		val intent = Intent(this, NewItemActivity::class.java).apply {
+			putExtra(EXTRA_NEW_ITEM_TITLE, serviceType)
+		}
+		startActivityForResult(intent, NEW_ITEM_ACTIVITY_REQUEST_CODE)
+		(supportFragmentManager.findFragmentByTag(RecordTypeBottomSheetFragment.TAG) as RecordTypeBottomSheetFragment).dismiss()
+	}
 }

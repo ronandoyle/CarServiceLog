@@ -13,4 +13,9 @@
     <string name="optional">(Optional)</string>
     <string name="submit">Submit</string>
     <string name="date">Date</string>
+    <string name="type">Type</string>
+	<string name="service">Service</string>
+    <string name="fuel">Fuel</string>
+    <string name="expense">Expense</string>
+    <string name="reminder">Reminder</string>
 </resources>

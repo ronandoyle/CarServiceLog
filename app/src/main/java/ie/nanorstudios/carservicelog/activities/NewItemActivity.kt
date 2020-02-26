@@ -6,17 +6,23 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_NEW_ITEM_TITLE
 import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_SERVICE_RECORD
 import ie.nanorstudios.carservicelog.R
+import ie.nanorstudios.carservicelog.ServiceType
 import ie.nanorstudios.carservicelog.models.ServiceRecord
 import kotlinx.android.synthetic.main.activity_new_item.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class NewItemActivity: AppCompatActivity() {
+
+	private var serviceType: ServiceType? = null
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_new_item)
+		extractIntentData()
 		initUI()
 	}
 
@@ -28,6 +34,17 @@ class NewItemActivity: AppCompatActivity() {
 		return super.onOptionsItemSelected(item)
 	}
 
+	private fun extractIntentData() {
+		ServiceType.values().forEach {
+			if (it.type == intent.getStringExtra(EXTRA_NEW_ITEM_TITLE)) {
+				serviceType = it
+			}
+		}
+		if (serviceType == null) {
+			serviceType = ServiceType.SERVICE
+		}
+	}
+
 	private fun initUI() {
 		initToolbar()
 		initDate()
@@ -37,6 +54,7 @@ class NewItemActivity: AppCompatActivity() {
 	private fun initToolbar() {
 		setSupportActionBar(toolbar)
 		supportActionBar?.setDisplayHomeAsUpEnabled(true)
+		supportActionBar?.title = serviceType?.type
 	}
 
 	private fun initDate() {

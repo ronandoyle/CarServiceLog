@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:id="@+id/bottom_sheet"
+			  android:orientation="vertical"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content">
+
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+		<TextView
+				android:id="@+id/service_cell"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/service"
+				android:drawableTop="@drawable/ic_service_grey_24dp"
+				android:gravity="center"
+				android:paddingTop="20dp"
+				android:paddingBottom="20dp"
+				android:layout_weight="1"/>
+
+		<TextView
+				android:id="@+id/fuel_cell"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/fuel"
+				android:drawableTop="@drawable/ic_fuel_grey_24dp"
+				android:gravity="center"
+				android:paddingTop="20dp"
+				android:paddingBottom="20dp"
+				android:layout_weight="1"/>
+
+		<TextView
+				android:id="@+id/expense_cell"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/expense"
+				android:drawableTop="@drawable/ic_expense_grey_24dp"
+				android:gravity="center"
+				android:paddingTop="20dp"
+				android:paddingBottom="20dp"
+				android:layout_weight="1"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+		<TextView
+				android:id="@+id/reminder_cell"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/reminder"
+				android:drawableTop="@drawable/ic_reminder_grey_24dp"
+				android:gravity="center"
+				android:paddingTop="20dp"
+				android:paddingBottom="20dp"
+				android:layout_weight="1"/>
+
+	</LinearLayout>
+
+</LinearLayout>

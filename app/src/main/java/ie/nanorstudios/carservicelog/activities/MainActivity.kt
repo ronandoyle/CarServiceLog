@@ -1,6 +1,7 @@
 package ie.nanorstudios.carservicelog.activities
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import dagger.android.support.DaggerAppCompatActivity
 import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_NEW_ITEM_TITLE
 import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_SERVICE_RECORD
+import ie.nanorstudios.carservicelog.R
 import ie.nanorstudios.carservicelog.RequestCodes.Companion.NEW_ITEM_ACTIVITY_REQUEST_CODE
 import ie.nanorstudios.carservicelog.adapters.ServiceRecordAdapter
 import ie.nanorstudios.carservicelog.fragments.RecordTypeBottomSheetFragment
@@ -76,7 +78,10 @@ class MainActivity: DaggerAppCompatActivity(), MainActivityView {
 		val intent = Intent(this, NewItemActivity::class.java).apply {
 			putExtra(EXTRA_NEW_ITEM_TITLE, serviceType)
 		}
-		startActivityForResult(intent, NEW_ITEM_ACTIVITY_REQUEST_CODE)
+
+		val options = ActivityOptions.makeCustomAnimation(this, R.anim.slide_up, R.anim.slide_down)
+		startActivityForResult(intent, NEW_ITEM_ACTIVITY_REQUEST_CODE, options.toBundle())
+
 		(supportFragmentManager.findFragmentByTag(RecordTypeBottomSheetFragment.TAG) as RecordTypeBottomSheetFragment).dismiss()
 	}
 }

@@ -34,6 +34,11 @@ class NewItemActivity: AppCompatActivity() {
 		return super.onOptionsItemSelected(item)
 	}
 
+	override fun finish() {
+		super.finish()
+		overridePendingTransition(R.anim.slide_down, R.anim.slide_up_reverse)
+	}
+
 	private fun extractIntentData() {
 		ServiceType.values().forEach {
 			if (it.type == intent.getStringExtra(EXTRA_NEW_ITEM_TITLE)) {

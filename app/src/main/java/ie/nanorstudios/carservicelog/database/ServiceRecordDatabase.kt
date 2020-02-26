@@ -25,7 +25,6 @@ abstract class ServiceRecordDatabase: RoomDatabase() {
 						INSTANCE = Room.databaseBuilder(
 							context.applicationContext,
 							ServiceRecordDatabase::class.java, DB_NAME)
-							.fallbackToDestructiveMigration()
 							.build()
 					}
 				}

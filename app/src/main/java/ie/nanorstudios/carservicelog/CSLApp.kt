@@ -21,6 +21,15 @@ class CSLApp: Application(), HasActivityInjector, HasSupportFragmentInjector {
 	override fun onCreate() {
 		super.onCreate()
 		instance = this
+		setupRemoteConfig()
+		setupDagger()
+	}
+
+	private fun setupRemoteConfig() {
+		CSLRemoteConfigManager()
+	}
+
+	private fun setupDagger() {
 		appComponent = DaggerAppComponent
 			.builder()
 			.app(this)
@@ -28,11 +37,10 @@ class CSLApp: Application(), HasActivityInjector, HasSupportFragmentInjector {
 		appComponent.inject(this)
 	}
 
-	override fun activityInjector(): AndroidInjector<Activity> {
-		return dispatchingAndroidInjector
+	private fun setupAircon() {
 	}
 
-	override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-		return dispatchingAndroidFragmentInjector
-	}
+	override fun activityInjector(): AndroidInjector<Activity> = dispatchingAndroidInjector
+
+	override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidFragmentInjector
 }

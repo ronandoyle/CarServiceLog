@@ -6,8 +6,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import dagger.android.support.DaggerAppCompatActivity
+import ie.nanorstudios.carservicelog.CSLRemoteConfigManager
 import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_NEW_ITEM_TITLE
 import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_SERVICE_RECORD
 import ie.nanorstudios.carservicelog.R
@@ -25,11 +25,11 @@ class MainActivity: DaggerAppCompatActivity(), MainActivityView {
 
     @Inject lateinit var presenter: MainActivityPresenter
     private var serviceRecordAdapter = ServiceRecordAdapter()
-	private var sheetBehavior: BottomSheetBehavior<*>? = null
 
 	override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(ie.nanorstudios.carservicelog.R.layout.activity_main)
+        setContentView(R.layout.activity_main)
+		setupFirebase()
         setupRecyclerView()
 //		setupBottomSheet()
         setupExpandingFab()
@@ -46,6 +46,10 @@ class MainActivity: DaggerAppCompatActivity(), MainActivityView {
             }
         }
     }
+
+	private fun setupFirebase() {
+		CSLRemoteConfigManager().fetchAndActivate(this)
+	}
 
     private fun setupRecyclerView() {
         val layoutMgr = LinearLayoutManager(this)

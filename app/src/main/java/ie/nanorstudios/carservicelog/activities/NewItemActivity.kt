@@ -54,6 +54,7 @@ class NewItemActivity: AppCompatActivity() {
 		initToolbar()
 		initDate()
 		initSubmitBtn()
+		initAutocompleteList()
 	}
 
 	private fun initToolbar() {
@@ -95,5 +96,9 @@ class NewItemActivity: AppCompatActivity() {
 			setResult(Activity.RESULT_OK, data)
 			finish()
 		}
+	}
+
+	private fun initAutocompleteList() {
+		typeView
 	}
 }

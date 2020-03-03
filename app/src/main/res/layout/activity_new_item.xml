@@ -19,7 +19,7 @@
 			android:id="@+id/typeLabel"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/date"
+			android:text="@string/type"
 			android:textSize="@dimen/labelSize"
 			android:textStyle="bold"
 			android:labelFor="@id/typeView"
@@ -29,14 +29,14 @@
 			app:layout_constraintTop_toBottomOf="@id/toolbar"
 			app:layout_constraintStart_toStartOf="parent"/>
 
-	<TextView
+	<AutoCompleteTextView
 			android:id="@+id/typeView"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginStart="@dimen/new_item_activity_gutter"
 			android:layout_marginEnd="@dimen/new_item_activity_gutter"
 			style="@android:style/Widget.EditText"
-			tools:text="04/09/2019"
+			android:hint="Enter service type"
 			android:textSize="@dimen/inputSize"
 			android:clickable="true"
 			android:focusable="true"

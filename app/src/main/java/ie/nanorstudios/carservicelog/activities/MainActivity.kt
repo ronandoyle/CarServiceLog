@@ -3,8 +3,12 @@ package ie.nanorstudios.carservicelog.activities
 import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +25,7 @@ import ie.nanorstudios.carservicelog.models.ServiceRecord
 import ie.nanorstudios.carservicelog.presenters.MainActivityPresenter
 import ie.nanorstudios.carservicelog.views.MainActivityView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.car_list_toolbar.*
 import javax.inject.Inject
 
 
@@ -28,11 +33,14 @@ class MainActivity: DaggerAppCompatActivity(), MainActivityView {
 
     @Inject lateinit var presenter: MainActivityPresenter
     private var serviceRecordAdapter = ServiceRecordAdapter()
+	private lateinit var drawerToggle: ActionBarDrawerToggle
 
 	override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 		setupFirebase()
+		setupToolbar()
+		setupDrawer()
         setupRecyclerView()
 //		setupBottomSheet()
         setupExpandingFab()
@@ -49,6 +57,43 @@ class MainActivity: DaggerAppCompatActivity(), MainActivityView {
             }
         }
     }
+
+	private fun setupToolbar() {
+		setSupportActionBar(toolbar)
+		supportActionBar?.setDisplayHomeAsUpEnabled(true)
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		if (drawerToggle.onOptionsItemSelected(item)) {
+			return true
+		}
+		return super.onOptionsItemSelected(item)
+	}
+
+	private fun setupDrawer() {
+		drawerToggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.drawer_open, R.string.drawer_close)
+		drawerToggle.isDrawerIndicatorEnabled = true
+		drawerToggle.syncState()
+		drawer_layout.addDrawerListener(drawerToggle)
+
+		nav_view?.setNavigationItemSelectedListener {
+			when (it.itemId) {
+				R.id.add_vehicle -> Toast.makeText(applicationContext, "Show vehicle adding dialog/screen", Toast.LENGTH_SHORT).show()
+			}
+			drawer_layout.closeDrawers()
+			true
+		}
+	}
+
+	override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+		super.onPostCreate(savedInstanceState, persistentState)
+		drawerToggle.syncState()
+	}
+
+	override fun onConfigurationChanged(newConfig: Configuration) {
+		super.onConfigurationChanged(newConfig)
+		drawerToggle.onConfigurationChanged(newConfig)
+	}
 
 	private fun setupFirebase() {
 		CSLRemoteConfigManager().fetchAndActivate(this)

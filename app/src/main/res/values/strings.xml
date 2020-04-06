@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">CarServiceLog</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
     <string name="make">Make</string>
     <string name="model">Model</string>
     <string name="engine">Engine</string>

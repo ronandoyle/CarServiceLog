@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_height="wrap_content"
+android:layout_width="match_parent"
+				>
+
+	<TextView
+			android:id="@+id/locationLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/location"
+			android:textSize="@dimen/labelSize"
+			android:textStyle="bold"
+			android:labelFor="@id/locationInput"
+			android:layout_marginTop="@dimen/top_gutter"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"
+			/>
+
+	<TextView
+			android:id="@+id/locationInput"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="?attr/editTextBackground"
+			android:gravity="center_vertical"
+			android:hint="@string/location_input"
+			android:textSize="@dimen/inputSize"
+			android:clickable="true"
+			android:focusable="true"
+			android:backgroundTint="@color/grey"
+			android:layout_below="@id/locationLabel"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"/>
+
+	<TextView
+			android:id="@+id/notesLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/notes"
+			android:textSize="@dimen/labelSize"
+			android:textStyle="bold"
+			android:labelFor="@id/notesInput"
+			android:layout_marginTop="@dimen/top_gutter"
+			android:layout_below="@id/locationInput"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"/>
+
+	<EditText
+			android:id="@+id/notesInput"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/notesLabel"
+			android:inputType="textCapSentences|textAutoCorrect"
+			android:hint="Add any extra notes"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"/>
+
+</RelativeLayout>

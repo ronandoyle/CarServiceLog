@@ -4,6 +4,7 @@ import android.app.Activity
 import android.util.Log
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
+import ie.nanorstudios.carservicelog.models.ServiceItem
 
 class CSLRemoteConfigManager {
 	var remoteConfig: FirebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
@@ -31,5 +32,17 @@ class CSLRemoteConfigManager {
 				Log.d("CSL_", "Remote config failed ${it.result}")
 			}
 		}
+	}
+
+	fun getServiceItems(serviceType: ServiceType?): List<ServiceItem> {
+		if (serviceType == null) return listOf()
+
+		val jsonString = when(serviceType) {
+			ServiceType.EXPENSE -> remoteConfig.getString(EXPENSE_TYPES)
+			ServiceType.FUEL -> remoteConfig.getString(FUEL_TYPES)
+			else -> remoteConfig.getString(SERVICE_TYPES)
+		}
+
+		return extractItemType(jsonString)
 	}
 }

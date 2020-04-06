@@ -42,6 +42,6 @@ class MainActivityPresenterImpl @Inject constructor(var view: MainActivityView,
 	}
 
 	private fun fetchServiceRecordsError(e: Throwable) {
-		//TODO Handle error
+		view.unableToPopulateServiceRecords()
 	}
 }

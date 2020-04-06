@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "367504398311",
-    "firebase_url": "https://car-service-log-bcd96.firebaseio.com",
-    "project_id": "car-service-log-bcd96",
-    "storage_bucket": "car-service-log-bcd96.appspot.com"
+    "project_number": "919187696644",
+    "firebase_url": "https://car-service-log-4139c.firebaseio.com",
+    "project_id": "car-service-log-4139c",
+    "storage_bucket": "car-service-log-4139c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:367504398311:android:e3e47ba2a55e8e44",
+        "mobilesdk_app_id": "1:919187696644:android:3d9ca003bb4f5cfa679951",
         "android_client_info": {
           "package_name": "ie.nanorstudios.carservicelog"
         }
       },
       "oauth_client": [
         {
-          "client_id": "367504398311-eil3d4ruqv76mdjcpbds4f8eimbsqdj5.apps.googleusercontent.com",
+          "client_id": "919187696644-d8bj5978665qhraah5o1lah458vbkr2a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ie.nanorstudios.carservicelog",
+            "certificate_hash": "9d8fdb72d3a966541a3af82a39f0f6f39468ca03"
+          }
+        },
+        {
+          "client_id": "919187696644-cksb9fidftvlva5j8n280aed0mo455di.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDmad3t7NpM6sL5OiD1jUAhH0ADuIpAmOg"
+          "current_key": "AIzaSyCP6ea_ak5Mt4mDAILLO9C-YcAbGggA4tA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "367504398311-eil3d4ruqv76mdjcpbds4f8eimbsqdj5.apps.googleusercontent.com",
+              "client_id": "919187696644-cksb9fidftvlva5j8n280aed0mo455di.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

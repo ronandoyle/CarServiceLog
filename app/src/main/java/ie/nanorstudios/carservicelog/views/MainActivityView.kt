@@ -4,4 +4,5 @@ import ie.nanorstudios.carservicelog.models.ServiceRecord
 
 interface MainActivityView {
 	fun populateServiceRecords(serviceRecords: MutableList<ServiceRecord>)
+	fun unableToPopulateServiceRecords()
 }

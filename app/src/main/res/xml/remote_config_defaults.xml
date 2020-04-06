@@ -2,14 +2,14 @@
 <defaultsMap>
 	<entry>
 		<key>service_types</key>
-		<value>"[Air Filter,Battery,Brake Discs,Brake Pads,Brake Fluid,Clutch,Timing Belt,Other]"</value>
+		<value>Air Filter,Battery,Brake Discs,Brake Pads,Brake Fluid,Clutch,Exhaust,Fuel Filter,InspectionLights,Light Bulb,Spark Plugs, Steering, Suspension,Timing Belt,Tyres,Other</value>
 	</entry>
 	<entry>
 		<key>expense_types</key>
-		<value>"["Parking","Car Wash","Insurance","Tax","Payment"]"</value>
+		<value>Parking,Car Wash,Insurance,Tax,Payment</value>
 	</entry>
 	<entry>
 		<key>fuel_types</key>
-		<value>"["Petrol","Diesel","Electric","LPG","Bio","LPG", "Other"]"</value>
+		<value>Petrol,Diesel,Electric,LPG,Bio,LPG,Other</value>
 	</entry>
 </defaultsMap>

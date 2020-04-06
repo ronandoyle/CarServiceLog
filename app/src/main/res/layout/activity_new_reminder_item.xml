@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<androidx.appcompat.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:titleTextColor="@android:color/white"
+			android:background="?attr/colorPrimary"/>
+
+	<TextView
+			android:id="@+id/typeLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/type"
+			android:textSize="@dimen/labelSize"
+			android:textStyle="bold"
+			android:labelFor="@id/serviceItem"
+			android:layout_marginTop="@dimen/top_gutter"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"
+			app:layout_constraintTop_toBottomOf="@id/toolbar"
+			app:layout_constraintStart_toStartOf="parent"/>
+
+	<TextView
+			android:id="@+id/serviceItem"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"
+			android:background="?attr/editTextBackground"
+			android:gravity="center_vertical"
+			android:hint="Enter service type"
+			android:textSize="@dimen/inputSize"
+			android:clickable="true"
+			android:focusable="true"
+			android:backgroundTint="@color/grey"
+			app:layout_constraintTop_toBottomOf="@id/typeLabel"
+			app:layout_constraintStart_toStartOf="parent"/>
+
+	<TextView
+			android:id="@+id/dateLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/date"
+			android:textSize="@dimen/labelSize"
+			android:textStyle="bold"
+			android:labelFor="@id/dateView"
+			android:layout_marginTop="@dimen/top_gutter"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"
+			app:layout_constraintTop_toBottomOf="@id/serviceItem"
+			app:layout_constraintStart_toStartOf="parent"/>
+
+	<TextView
+			android:id="@+id/dateView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"
+			style="@android:style/Widget.EditText"
+			tools:text="04/09/2019"
+			android:textSize="@dimen/inputSize"
+			android:clickable="true"
+			android:focusable="true"
+			android:backgroundTint="@color/grey"
+			app:layout_constraintTop_toBottomOf="@id/dateLabel"
+			app:layout_constraintStart_toStartOf="parent"/>
+
+	<TextView
+			android:id="@+id/mileageLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/mileage"
+			android:textSize="@dimen/labelSize"
+			android:textStyle="bold"
+			android:labelFor="@id/dateView"
+			android:layout_marginTop="@dimen/top_gutter"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"
+			app:layout_constraintTop_toBottomOf="@id/dateView"
+			app:layout_constraintStart_toStartOf="parent"/>
+
+
+	<EditText
+			android:id="@+id/mileageInput"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:layout_constraintTop_toBottomOf="@id/mileageLabel"
+			android:layout_marginStart="@dimen/new_item_activity_gutter"
+			android:layout_marginEnd="@dimen/new_item_activity_gutter"
+			android:inputType="number"
+			android:hint="50,000"/>
+
+	<Button
+			android:id="@+id/submit"
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			android:paddingStart="50dp"
+			android:paddingEnd="50dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			android:text="Submit"/>
+
+	<FrameLayout
+			android:id="@+id/frame_layout"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:elevation="3dp"
+			app:layout_constraintTop_toBottomOf="@id/toolbar"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import ie.nanorstudios.carservicelog.converters.ServiceItemTypeConverter
 import ie.nanorstudios.carservicelog.daos.ServiceRecordDao
 import ie.nanorstudios.carservicelog.models.ServiceRecord
 
 private const val DB_NAME = "service_database"
 
 @Database(entities = [ServiceRecord::class] , version = 1)
+@TypeConverters(ServiceItemTypeConverter::class)
 abstract class ServiceRecordDatabase: RoomDatabase() {
 
 	abstract fun serviceRecordDao(): ServiceRecordDao

@@ -18,4 +18,11 @@
     <string name="fuel">Fuel</string>
     <string name="expense">Expense</string>
     <string name="reminder">Reminder</string>
+    <string name="action_done">Done</string>
+    <string name="location">Location</string>
+    <string name="location_input">Enter a location</string>
+    <string name="notes">Notes</string>
+    <string name="euro_symbol">\u20ac%1$s</string>
+    <string name="pound_symbol">\u00a3%1$s</string>
+    <string name="usd_symbol">\u0024%1$s</string>
 </resources>

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 
 
-class ItemAdapter @JvmOverloads constructor(context: Context, var resourceId: Int, var items: ArrayList<String>):
+class ItemAdapter @JvmOverloads constructor(context: Context, var resourceId: Int, var items: List<String>):
 	ArrayAdapter<String>(context, resourceId, items) {
 
 	override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {

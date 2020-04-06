@@ -4,6 +4,8 @@ import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.android.support.DaggerAppCompatActivity
@@ -12,6 +14,7 @@ import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_NEW_ITEM_TITLE
 import ie.nanorstudios.carservicelog.Extras.Companion.EXTRA_SERVICE_RECORD
 import ie.nanorstudios.carservicelog.R
 import ie.nanorstudios.carservicelog.RequestCodes.Companion.NEW_ITEM_ACTIVITY_REQUEST_CODE
+import ie.nanorstudios.carservicelog.ServiceType
 import ie.nanorstudios.carservicelog.adapters.ServiceRecordAdapter
 import ie.nanorstudios.carservicelog.fragments.RecordTypeBottomSheetFragment
 import ie.nanorstudios.carservicelog.models.ServiceRecord
@@ -55,6 +58,7 @@ class MainActivity: DaggerAppCompatActivity(), MainActivityView {
         val layoutMgr = LinearLayoutManager(this)
         layoutMgr.orientation = RecyclerView.VERTICAL
         service_record_rv.layoutManager = LinearLayoutManager(this)
+		service_record_rv.addItemDecoration(DividerItemDecoration(service_record_rv.context, layoutMgr.orientation))
         service_record_rv.adapter = serviceRecordAdapter
         populateRecyclerView()
     }
@@ -67,7 +71,11 @@ class MainActivity: DaggerAppCompatActivity(), MainActivityView {
         serviceRecordAdapter.setServiceServiceRecords(serviceRecords)
     }
 
-    private fun setupExpandingFab() {
+	override fun unableToPopulateServiceRecords() {
+		Toast.makeText(this, "Unable to fetch service records", Toast.LENGTH_SHORT).show()
+	}
+
+	private fun setupExpandingFab() {
         fab.setOnClickListener {
 			showBottomSheetFragment()
         }
@@ -79,6 +87,12 @@ class MainActivity: DaggerAppCompatActivity(), MainActivityView {
 	}
 
 	private fun handleBottomSheetAction(serviceType: String) {
+
+		if (serviceType == ServiceType.EXPENSE.type) {
+			presenter.populateRecyclerView()
+			return
+		}
+
 		val intent = Intent(this, NewItemActivity::class.java).apply {
 			putExtra(EXTRA_NEW_ITEM_TITLE, serviceType)
 		}
